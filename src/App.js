@@ -16,7 +16,7 @@ const App = () => {
     <>
       <h1>Frontend</h1>
       <ul>{users.map(user => <li key={user.name}>{user.name}</li>)}</ul>
-      <p>Version: 2</p>
+      <p>Version: 3</p>
     </>
   )
 }
