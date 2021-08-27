@@ -14,6 +14,11 @@ spec:
             - name: PROTOCOLS
             - name: LOG_LEVEL
               value: debug
+            - name: CUSTOM_ENV_VARIABLE
+              valueFrom:
+                routeRef:
+                  name: env-vars
+                  key: backendUrl
           image: quay.io/<account>/<repo>
           imagePullPolicy: IfNotPresent
           livenessProbe:
