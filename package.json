@@ -12,6 +12,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "postinstall": "chmod +x ./env.sh",
+    "prestart": "./env.sh && cp env-config.js ./public/",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
