@@ -4,8 +4,12 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
 COPY package-lock.json ./
+RUN echo $(pwd)
+RUN echo $(ls -la)
 RUN npm ci --production --silent
-COPY . ./
+COPY ./public ./public
+COPY ./src ./src
+COPY ./nginx.conf ./
 RUN npm run build
 
 # production environment
