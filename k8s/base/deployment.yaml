@@ -16,7 +16,7 @@ spec:
               value: debug
             - name: CUSTOM_ENV_VARIABLE
               valueFrom:
-                routeRef:
+                configMapKeyRef:
                   name: env-vars
                   key: backendUrl
           image: quay.io/<account>/<repo>
