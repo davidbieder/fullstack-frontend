@@ -32,10 +32,12 @@ COPY --from=build /app/env.sh .
 COPY --from=build /app/.env .
 
 USER root
-RUN chgrp 0 ./env.sh && chmod u+x ./env.sh
+RUN chgrp root ./env.sh && chmod g+x ./env.sh
+#RUN chown nginx ./env.sh && chmod u+x ./env.sh
 RUN touch ./env-config.js
-RUN chgrp 0 ./env-config.js
-USER nginx
+RUN chgrp root ./env-config.js && chmod g+w ./env-config.js
+#RUN chown nginx ./env-config.js && chmod g+w ./env-config.js
+#USER nginx
 
 #USER root
 #RUN chown nginx:nginx /usr/share/nginx/html
@@ -46,4 +48,5 @@ USER nginx
 
 EXPOSE 8080
 
+#CMD ["/bin/sh", "-c", "/usr/share/nginx/html/env.sh"]
 CMD ["/bin/sh", "-c", "/usr/share/nginx/html/env.sh && nginx -g \"daemon off;\""]
