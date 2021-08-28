@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Recreate config file
+whoami
 pwd
 ls -la
 rm -rf ./env-config.js
