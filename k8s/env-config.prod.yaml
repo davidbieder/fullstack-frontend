@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: env-config
 data:
-  backendUrl: backend-david-bieder-fullstack-production.ibmcloud-roks-twbby-6ccd7f378ae819553d37d5f2ee142bd6-0000.eu-gb.containers.appdomain.cloud
+  backendUrl: https://backend-david-bieder-fullstack-production.ibmcloud-roks-twbby-6ccd7f378ae819553d37d5f2ee142bd6-0000.eu-gb.containers.appdomain.cloud
