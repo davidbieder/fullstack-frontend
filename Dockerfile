@@ -35,6 +35,7 @@ USER root
 RUN chgrp 0 ./env.sh && chmod u+x ./env.sh
 RUN touch ./env-config.js
 RUN chgrp 0 ./env-config.js
+USER nginx
 
 #USER root
 #RUN chown nginx:nginx /usr/share/nginx/html
