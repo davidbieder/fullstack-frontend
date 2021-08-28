@@ -8,8 +8,6 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
 COPY package-lock.json ./
 
-RUN echo $(pwd)
-RUN echo $(ls -la)
 RUN npm ci --production --silent
 
 COPY ./public ./public
@@ -34,6 +32,7 @@ COPY --from=build /app/env.sh .
 COPY --from=build /app/.env .
 
 USER root
+RUN chown nginx:nginx /usr/share/nginx/html
 RUN chown nginx:nginx ./env.sh && chmod +x ./env.sh
 RUN touch ./env-config.js
 RUN chown nginx:nginx ./env-config.js
