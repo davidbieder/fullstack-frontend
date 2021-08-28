@@ -34,7 +34,9 @@ COPY --from=build /app/env.sh .
 COPY --from=build /app/.env .
 
 USER root
-RUN chmod +x ./env.sh
+RUN chown nginx:nginx ./env.sh && chmod +x ./env.sh
+RUN chown nginx:nginx ./env-config.js
+USER nginx
 
 EXPOSE 8080
 
