@@ -32,11 +32,16 @@ COPY --from=build /app/env.sh .
 COPY --from=build /app/.env .
 
 USER root
-RUN chown nginx:nginx /usr/share/nginx/html
-RUN chown nginx:nginx ./env.sh && chmod +x ./env.sh
+RUN chgrp 0 ./env.sh && chmod u+x ./env.sh
 RUN touch ./env-config.js
-RUN chown nginx:nginx ./env-config.js
-USER nginx
+RUN chgrp 0 ./env-config.js
+
+#USER root
+#RUN chown nginx:nginx /usr/share/nginx/html
+#RUN chown nginx:nginx ./env.sh && chmod +x ./env.sh
+#RUN touch ./env-config.js
+#RUN chown nginx:nginx ./env-config.js
+#USER nginx
 
 EXPOSE 8080
 
