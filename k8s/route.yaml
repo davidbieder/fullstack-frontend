@@ -3,6 +3,8 @@ kind: Route
 metadata:
   name: frontend
 spec:
+  host: host.name
+  path: /
   tls:
     termination: edge
   to:
